@@ -48,8 +48,8 @@ public class GroupAnagrams {
 
     for (String word : strs) {
       char[] chars = word.toCharArray();
-      Arrays.sort(chars);
-      String sortedWord = new String(chars);
+      Arrays.sort(chars);//instead of sort get Integer[26] char count arr for each string..
+      String sortedWord = new String(chars);//use that array as key in map(tc goes like 0(m*n))
 
       if (!map.containsKey(sortedWord)) {
         map.put(sortedWord, new ArrayList<>());
