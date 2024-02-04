@@ -39,16 +39,10 @@ public class Valid_Palindrome {
     char[] charArray = s.toCharArray();
     int leftP = 0, rightP = s.length() - 1;
     while (leftP < rightP) {
-      while (!isAlphaNumeric(charArray[leftP])) {
-        if (leftP == s.length() - 1) {
-          return true;
-        }
+      while (leftP < rightP && !isAlphaNumeric(charArray[leftP])) {
         leftP += 1;
       }
-      while (!isAlphaNumeric(charArray[rightP])) {
-        if (rightP == 0) {
-          return false;
-        }
+      while (rightP > leftP && !isAlphaNumeric(charArray[rightP])) {
         rightP -= 1;
       }
       if (charArray[leftP] != charArray[rightP]) {
@@ -65,7 +59,7 @@ public class Valid_Palindrome {
     String test = "A man, a plan, a canal: Panama";
     String test2 = "race a car";
     String test3 = "1a2";
-    String test4 = ".,";
+    String test4 = "a.,a";
 //    System.out.println(isPalindrome(test3));
 //    System.out.println(isPalindrome(test2));
 //    System.out.println(isPalindrome(test));
