@@ -60,7 +60,7 @@ public class Longest_palindrome {
     }
 
     public static void main(String[] args){
-      String word = "agggs";
+      String word = "aggggs";
       System.out.println(longest_palindrome(word));
     }
   };
