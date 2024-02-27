@@ -70,6 +70,39 @@ public class Search_in_Rotated_Sorted_Array {
 
   }
 
+  public static int search2(int[] nums, int target) {
+    int l = 0;
+    int r = nums.length - 1;
+    while (l <= r) {
+      int m = l + r >>> 1;
+      System.out.println("l=:" + l);
+      System.out.println("r=:" + r);
+      System.out.println("m=:" + m);
+
+      if (nums[m] == target) {
+        return m;
+      }
+      if(nums[m]>=nums[l])
+      {
+        //if target less than left sorted array first element or its greater than mid
+        if(target>nums[m] || target<nums[l])
+          l=m+1;
+        else
+          r=m-1;
+      }
+      else
+      {
+        if(target<nums[m] || target>nums[r])
+          r=m-1;
+        else
+          l=m+1;
+      }
+
+    }
+    return -1;
+
+  }
+
   public static void main(String[] args) {
     System.out.println(search(new int[]{4, 5, 6, 7, 8, 1, 2, 3}, 8));
   }
